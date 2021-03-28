@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import Event from './Event';
+import AppContext from '../contexts/AppContext';
 
-const Events = ({ state, dispach }) => {
+const Events = () => {
+  const { state } = useContext(AppContext);
+
   return (
     <>
       <h4>イベント一覧</h4>
@@ -16,7 +19,7 @@ const Events = ({ state, dispach }) => {
           </tr>
         </thead>
           <tbody>
-            { state.map((event, index) => (<Event key={index} event={event} dispach={dispach}/>))}
+            { state.map((event, index) => (<Event key={index} event={event} />))}
           </tbody>
       </table>
     </>
